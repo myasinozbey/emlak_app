@@ -126,7 +126,7 @@ def main():
         scraper_type = st.selectbox(
             "Scraper Tipi",
             options=["Selenium (Dinamik Sayfa)", "Requests + BeautifulSoup"],
-            index=0,
+            index=1,
         )
         headless = st.checkbox("Headless mod", value=False)
         run_button = st.button("Veriyi Çek ve Analiz Et")
