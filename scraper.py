@@ -20,12 +20,13 @@ class HepsiEmlakScraper:
         self.config = config or ScraperConfig()
 
     def _build_driver(self) -> webdriver.Chrome:
-        options = webdriver.ChromeOptions()
-        options.add_argument("--start-maximized")
-        if self.config.headless:
-            options.add_argument("--headless=new")
-            options.add_argument("--window-size=1920,1080")
-        return webdriver.Chrome(options=options)
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless=new")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--window-size=1920,1080")
+    return webdriver.Chrome(options=options)
+
 
     def _close_popups(self, driver: webdriver.Chrome) -> None:
         try:
